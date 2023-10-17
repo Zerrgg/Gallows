@@ -1,4 +1,4 @@
-package com.zzerrgg.info;
+package com.zzerrgg.statistic;
 
 public class GameStatistic {
 
@@ -11,7 +11,7 @@ public class GameStatistic {
     public void initialize(String generatedWord) {
         this.generatedWord = generatedWord.toLowerCase();
         this.incorrectLettersCount = 0;
-        this.incorrectLetters = ": ";
+        this.incorrectLetters = "";
     }
 
     public String getGeneratedWord() {
@@ -24,10 +24,6 @@ public class GameStatistic {
 
     public String getIncorrectLetters() {
         return incorrectLetters;
-    }
-
-    public void setGeneratedWord(String generatedWord) {
-        this.generatedWord = generatedWord;
     }
 
     public void setIncorrectLettersCount(int incorrectLettersCount) {

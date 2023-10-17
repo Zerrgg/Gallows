@@ -1,4 +1,4 @@
-package com.zzerrgg.image;
+package com.zzerrgg.imageInAscii;
 
 import java.util.ArrayList;
 import java.util.Arrays;

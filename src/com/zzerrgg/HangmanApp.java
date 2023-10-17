@@ -1,10 +1,10 @@
 package com.zzerrgg;
 
-import com.zzerrgg.service.menu.Menu;
+import com.zzerrgg.service.gameplay.Game;
 
 public class HangmanApp {
     public static void main(String[] args) {
-        Menu menu = new Menu();
-        menu.printMenu();
+        Game game = new Game();
+        game.start();
     }
 }

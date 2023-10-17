@@ -1,35 +1,42 @@
 package com.zzerrgg.service.menu;
 
-import com.zzerrgg.service.gameplay.GamePlay;
 
-import java.util.Scanner;
+public enum Menu {
 
-public class Menu {
-    Scanner scanner = new Scanner(System.in);
-    GamePlay gamePlay = new GamePlay();
+    START("1 - Старт новой игры", "1"),
+    STOP("2 - Завершение игры", "2"),
 
-    public void printMenu() {
-        String firstMenuItem = "1 - Старт новой игры";
-        String secondMenuItem = "2 - Завершение игры";
+    DEFAULT("Сделайте ввод 1 или 2 соответствующие пунктам меню", "-1");
+    private final String title;
+
+    private final String code;
+
+    Menu(String title, String code){
+        this.title = title;
+        this.code = code;
+    }
+
+    public void printTitle(){
+        System.out.println(this.getTitle());
+    }
+
+    public static void print() {
         System.out.println("\nСделайте ваш выбор: \n" +
-                firstMenuItem + "\n" +
-                secondMenuItem);
-        while (true) {
-            String playerChoice = scanner.nextLine();
-            if (!playerChoice.equals("1") && !playerChoice.equals("2")) {
-                System.out.println("Сделайте ввод 1 или 2 соответствующие пунктам меню");
-            } else {
-                switch (playerChoice) {
-                    case "1":
-                        System.out.println("Да начнется битва");
-                        gamePlay.startNewGame();
-                        break;
-                    case "2":
-                        System.out.println("Вы вышли из битвы");
-                        System.exit(0);
-                        break;
-                }
+                Menu.START.title + "\n" +
+                Menu.STOP.title);
+
+    }
+
+    public static Menu getMenuByCod(String code) {
+        for (Menu value : Menu.values()) {
+            if(value.code.equals(code)){
+                return value;
             }
         }
+        return null;
+    }
+
+    public String getTitle() {
+        return title;
     }
 }
